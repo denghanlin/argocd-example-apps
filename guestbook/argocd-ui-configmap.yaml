@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  namespace: hdeng18
+data:
+  repository.credentials: |
+    - url: https://github.com/denghanlin/argocd-example-apps.git
+      passwordSecret:
+        name: my-secret
+        key: password
+      usernameSecret:
+        name: my-secret
+        key: username
+  timeout.reposerver: 60s
